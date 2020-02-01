@@ -81,28 +81,28 @@ func (r *Rand) shuffle() {
 	for i := 0; i < 256; i += 4 {
 		x := r.buf[i+0]
 		r.a = ^r.a ^ (r.a << 21)
-		r.a = r.buf[(i+0+128)&0xff] + r.a
+		r.a += r.buf[(i+0+128)&0xff]
 		r.buf[i+0] = r.buf[x>>3&0xff] + r.a + r.b
 		r.b = r.buf[r.buf[i+0]>>11&0xff] + x
 		r.out[i+0] = r.b
 
 		x = r.buf[i+1]
-		r.a = r.a ^ (r.a >> 5)
-		r.a = r.buf[(i+1+128)&0xff] + r.a
+		r.a ^= r.a >> 5
+		r.a += r.buf[(i+1+128)&0xff]
 		r.buf[i+1] = r.buf[x>>3&0xff] + r.a + r.b
 		r.b = r.buf[r.buf[i+1]>>11&0xff] + x
 		r.out[i+1] = r.b
 
 		x = r.buf[i+2]
-		r.a = r.a ^ (r.a << 12)
-		r.a = r.buf[(i+2+128)&0xff] + r.a
+		r.a ^= r.a << 12
+		r.a += r.buf[(i+2+128)&0xff]
 		r.buf[i+2] = r.buf[x>>3&0xff] + r.a + r.b
 		r.b = r.buf[r.buf[i+2]>>11&0xff] + x
 		r.out[i+2] = r.b
 
 		x = r.buf[i+3]
-		r.a = r.a ^ (r.a >> 33)
-		r.a = r.buf[(i+3+128)&0xff] + r.a
+		r.a ^= r.a >> 33
+		r.a += r.buf[(i+3+128)&0xff]
 		r.buf[i+3] = r.buf[x>>3&0xff] + r.a + r.b
 		r.b = r.buf[r.buf[i+3]>>11&0xff] + x
 		r.out[i+3] = r.b
