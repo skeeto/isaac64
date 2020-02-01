@@ -14,4 +14,6 @@ r := isaac64.New()
 r.SeedFrom(rand.Reader)
 ```
 
+Documentation: <https://godoc.org/nullprogram.com/x/isaac64>
+
 [isaac]: https://www.burtleburtle.net/bob/rand/isaacafa.html
