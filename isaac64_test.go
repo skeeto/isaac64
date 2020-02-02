@@ -9,10 +9,15 @@ import (
 func TestLcg128(t *testing.T) {
 	// Output from official reference implementation
 	want := []uint64{
-		0x76da1d9489e950e0, 0xc1c5482e8b47ba48,
-		0xb734c4e94c6e03fe, 0x281c6b8319ee67f9,
-		0x3f58339754ab4c23, 0x030b5b3e26049fe1,
-		0xd582f73a4a41be9b, 0x488bdc4908a24b8f,
+		0x3f55d36a1b609a5b, 0x6601ce80f1cf7a35, 0x92334584ef40e08b,
+		0x0617023b18a2a93e, 0xaae254dc9a92559b, 0x6af1360e8bcbb24a,
+		0xb337d3cd3ccf0d2f, 0x35b816475fc147a1, 0x03f664ed80a50776,
+		0xd31ea35f9ff8e218, 0xf11183fe6ffee9a2, 0xe3673b3bcf274227,
+		0xad84ed35e1bb51b3, 0xcda8fb07c32cd77f, 0xf5d90c644f88b639,
+		0xfacca7ebbe19e0a7, 0x9e910c9abcdf788b, 0x6094f6eac27a706a,
+		0x4658f1f887095621, 0x2964a037d9c1b7cd, 0x084a81250d0654b1,
+		0xe8d38dc859e47007, 0x9b146f60ba0a77fc, 0x2d14d572e62098b9,
+		0x43a272e9b2e37de7, 0x45452ff03fa24e1c, 0xe718c93392107227,
 	}
 
 	r := isaac64.New()

@@ -27,8 +27,11 @@ func New() *Rand {
 
 // Seed fully initializes the generator state from a seed.
 func (r *Rand) Seed(seed int64) {
+	s := uint64(seed)
 	for i := 0; i < 256; i++ {
-		z := uint64(i) + uint64(seed)
+		// Use SplitMix64 to populate the internal state
+		s += 0x9e3779b97f4a7c15
+		z := s
 		z ^= z >> 30
 		z *= 0xbf58476d1ce4e5b9
 		z ^= z >> 27
